@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import {mount} from "react-mounter";
+import AppInnovador from "./AppInnovador.js";
 
 export default class App extends Component {
 
 	cambiarPantalla(){
-		FlowRouter.go("/appinnovador");
+		 // FlowRouter.go("/appinnovador");
+		mount(AppInnovador,{name: 'Whatever'})
+
 	}
 
 	render() {
