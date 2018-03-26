@@ -1,0 +1,18 @@
+Proyecto con comentarios:
+{
+  "_id": "5ab95d96d1fb6d142a8aff5f",
+  "comentarios": [
+    {
+      "opinion": "Letra no es claro",
+      "propietario": "",
+      "puntaje": 0,
+      "tarea": "1",
+      "tiempo": "21"
+    }
+  ],
+  "descripcion": "Aplicación que permite seleccionar restaurantes favoritos segun precio, tipo de comida, nombre ...",
+  "nombre": "ResDiscounts",
+  "tareas": "1. Encontrar restaurante con mayor número de likes, con tipo de restaurante gourmet.  2. Filtrar restaurantes que empiezan con 'M' y venden hamburguesas 3. Dar like a su restaurante favorito.",
+  "tema": "Filtrado de restaurantes",
+  "url": "https://restaurantsdis.herokuapp.com/"
+}

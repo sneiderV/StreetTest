@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {mount} from "react-mounter";
+import DetalleProyecto from "./DetalleProyecto.js"
 
 /**
  * componente que representa cada proyecto en la pantalla "AppInnovador"
@@ -6,8 +8,8 @@ import React, { Component } from 'react';
  **/
 export default class ProyectoInnovador extends Component {
 
-	verDetallesProyecto(){
-		alert("se visualizarán detalles del proyecto");
+	verDetalleProyecto(){
+		mount(DetalleProyecto,{proyecto: this.props.proyecto});
 	}
 
 
@@ -18,7 +20,7 @@ export default class ProyectoInnovador extends Component {
 					<h6><strong>{this.props.proyecto.nombre}</strong></h6>
 					<a href={this.props.proyecto.url}>URL del proyecto</a>
 					<p className="tareas">{"Tareas: "+ this.props.proyecto.tareas}</p>
-					<button type="button" onClick={this.verDetallesProyecto.bind(this)} >Ver detalle</button>
+					<button type="button" onClick={this.verDetalleProyecto.bind(this)} >Ver detalle</button>
 				</div>
 				<br/>
 			</div>
