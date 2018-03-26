@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {mount} from "react-mounter";
 import AppInnovador from "./AppInnovador.js";
+import AppTester from "./AppTester.js";
 
 import { withTracker } from "meteor/react-meteor-data";
 
@@ -13,10 +14,14 @@ import { Proyectos } from "../api/proyectos.js";
  **/
 export class App extends Component {
 
-	cambiarPantalla(){
+	cambiarPantallaInnovador(){
 		 // FlowRouter.go("/appinnovador");
 		mount(AppInnovador,{proyectos: this.props.proyectos})
+	}
 
+	cambiarPantallaTester(){
+		 // FlowRouter.go("/appinnovador");
+		mount(AppTester,{proyectos: this.props.proyectos})
 	}
 
 	render() {
@@ -27,8 +32,8 @@ export class App extends Component {
 				<h1>Street Test</h1>
 				<h4>Quieres ingresar como:</h4>
 				{/*botones de cada uno llevan  a pantallas de login distinto, se debe pasr por parámetro el rol*/}
-				<button id="Innovador" onClick={this.cambiarPantalla.bind(this)}>Innovador</button>
-				<button id="Tester" >Tester</button>
+				<button id="Innovador" onClick={this.cambiarPantallaInnovador.bind(this)}>Innovador</button>
+				<button id="Tester" onClick={this.cambiarPantallaTester.bind(this)}>Tester</button>
 				
 			</div>
 			);
