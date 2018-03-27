@@ -31,9 +31,9 @@ button:hover:before {
  width: 100%;
 }
 
-div.inicio {
-	 background-image: url("./fondo.jpg");
-background-color: red;
+.inicio {
+ background-image:url('./fondo.jpg');
+ /*background-color: green;*/
  /*background-image: url("fondo.jpg");*/
 }
 

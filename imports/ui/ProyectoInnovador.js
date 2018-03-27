@@ -15,14 +15,13 @@ export default class ProyectoInnovador extends Component {
 
 	render() {
 		return (
-			<div>
-				<div className="cuadroProyectoInnovador"> 
-					<h6><strong>{this.props.proyecto.nombre}</strong></h6>
-					<a href={this.props.proyecto.url}>URL del proyecto</a>
+			<div className="card">
+				<h5 className="card-header">{this.props.proyecto.nombre}</h5>
+				<div className="card-body"> 
+					<h6 className="card-title"><a href={this.props.proyecto.url}>URL del proyecto</a></h6>
 					<p className="tareas">{"Tareas: "+ this.props.proyecto.tareas}</p>
-					<button type="button" onClick={this.verDetalleProyecto.bind(this)} >Ver detalle</button>
+					<button type="button" className="btn btn-outline-info" onClick={this.verDetalleProyecto.bind(this)} >Ver detalle</button>
 				</div>
-				<br/>
 			</div>
 		);
 	}
