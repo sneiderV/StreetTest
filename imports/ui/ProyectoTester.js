@@ -11,9 +11,11 @@ import "./sweet-alert.css"
  **/
 export default class ProyectoTester extends Component {
 
-	hacerTest(){
+    // var datos;
+
+	hacerTest(nombreProyecto){
 		swal.withForm({
-            title: 'Nombre del proyecto',
+            title: this.props.proyecto.nombre,
             text: 'Porfavor ingrese los datos para crear su prueba.',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
@@ -28,12 +30,18 @@ export default class ProyectoTester extends Component {
         }, function(isConfirm) {
             // Aqui estan los datos de los usuarios
             if (isConfirm === true) {
+
+                Meteor.call("comentarios.insert", nombreProyecto, this.swalForm.tarea, this.swalForm.tiempo, this.swalForm.opinion);
+
                 swal("Buen trabajo!", "Tu comentario fue guardado, espera por tus puntos.", "success");
-                console.log(this.swalForm) // lanza un objeto con los parametros que fueron ingresados por el usuario
+                //swalForm // lanza un objeto con los parametros que fueron ingresados por el usuario
             }
         });
 	}
 
+    hacerTest1(){
+
+    }
 
 	render() {
 		return (
@@ -42,7 +50,7 @@ export default class ProyectoTester extends Component {
 					<h6><strong>{this.props.proyecto.nombre}</strong></h6>
 					<a href={this.props.proyecto.url}>URL del proyecto</a>
 					<p className="tareas">{"Tareas: "+ this.props.proyecto.tareas}</p>
-					<button type="button" onClick={this.hacerTest}>Test</button>
+					<button type="button" onClick={()=>{this.hacerTest(this.props.proyecto.nombre)}}>Test</button>
 				</div>
 				<br/>
 			</div>

@@ -21,7 +21,7 @@ import "./sweet-alert.css"
             confirmButtonText: 'Crear',
             // closeOnConfirm: true,
             formFields: [
-            { id: 'nonmbre', placeholder:'Nombre del Proyecto', required: true },
+            { id: 'nombre', placeholder:'Nombre del Proyecto', required: true },
             { id: 'url', placeholder:'Ingresa la URL de tu proyecto', required: true },
             { id: 'tema', placeholder:'Tema general', required: true },
             { id: 'descripcion', placeholder:'Ingrese una breve descripción', required: true },
@@ -31,8 +31,12 @@ import "./sweet-alert.css"
         }, function(isConfirm) {
             // Aqui estan los datos de los usuarios
             if (isConfirm === true) {
+                // Hace insert a collection
+                Meteor.call("proyectos.insert", this.swalForm.nombre, this.swalForm.url, 
+                    this.swalForm.tema, this.swalForm.descripcion, this.swalForm.tareas);
+
                 swal("Buen trabajo!", "Tu proyecto fue creado, espara por los comentarios", "success");
-                console.log(this.swalForm) // lanza un objeto con los parametros que fueron ingresados por el usuario
+                console.log(this.swalForm); // lanza un objeto con los parametros que fueron ingresados por el usuario
             }
         });
  	}
