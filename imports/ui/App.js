@@ -41,23 +41,29 @@ export class App extends Component {
 	render() {
 		return (
 			// se diseña parte comun s
-		<div>
-			<div className="container-fluid">
-				<div className="row espacio"></div>			
-				
-				<div className="iniciodiv">
+		<div className="iniciodiv">
+			<div className="container">
+				<div className="row">
+				<div className="col-sm"></div>
+				<div className="col-sm">
+					<br/><br/><br/><br/><br/><br/><br/><br/>
+					<div className="cuadroInicio">
+					<center>
+					<br/><br/>
 					<h1 className="display-4">Street Test</h1>
-					
+					<br/>
 					<h4>Quieres ingresar como:</h4>
 					{/*botones de cada uno llevan  a pantallas de login distinto, se debe pasr por parámetro el rol*/}
-					<center>
-					<button id="Innovador" className="btn-lg" onClick={this.cambiarPantallaInnovador.bind(this)}>Innovador</button>
+					<button id="Innovador" className="btn btn-lg" onClick={this.cambiarPantallaInnovador.bind(this)}>Innovador</button>
 					<span>                                                                      </span>
-					<button id="Tester" className="btn-lg" onClick={this.cambiarPantallaTester.bind(this)}>Tester</button>
+					<button id="Tester" className="btn btn-lg" onClick={this.cambiarPantallaTester.bind(this)}>Tester</button>
+					<br/><br/>
 					</center>
+					</div>
+					<br/><br/><br/><br/><br/><br/><br/>
 				</div>
-
-				<div className="row espacio"></div>			
+				<div className="col-sm"></div>
+				</div>
 			</div>
 		</div>
 			);

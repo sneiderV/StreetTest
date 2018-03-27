@@ -36,7 +36,9 @@ button:hover:before {
  background-image: url(https://ak6.picdn.net/shutterstock/videos/4805756/thumb/1.jpg);
  background-repeat: no-repeat;
  background-size: cover;
- height: 1000hv;
+ height: 100%;
+ width: 100%
+
 }
 .testerdiv {
 	/*background-color: green;*/
@@ -63,4 +65,8 @@ button:hover:before {
 
 .espacio{
 	height: 150%;
+}
+
+.cuadroInicio{
+	border-style: solid;
 }
