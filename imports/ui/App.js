@@ -41,19 +41,25 @@ export class App extends Component {
 	render() {
 		return (
 			// se diseña parte comun s
-			<div>
-				<div>
-					<h1>Street Test</h1>
+		<div>
+			<div className="container-fluid">
+				<div className="row espacio"></div>			
+				
+				<div className="iniciodiv">
+					<h1 className="display-4">Street Test</h1>
 					
 					<h4>Quieres ingresar como:</h4>
 					{/*botones de cada uno llevan  a pantallas de login distinto, se debe pasr por parámetro el rol*/}
 					<center>
-					<button id="Innovador" onClick={this.cambiarPantallaInnovador.bind(this)}>Innovador</button>
+					<button id="Innovador" className="btn-lg" onClick={this.cambiarPantallaInnovador.bind(this)}>Innovador</button>
 					<span>                                                                      </span>
-					<button id="Tester" onClick={this.cambiarPantallaTester.bind(this)}>Tester</button>
+					<button id="Tester" className="btn-lg" onClick={this.cambiarPantallaTester.bind(this)}>Tester</button>
 					</center>
 				</div>
+
+				<div className="row espacio"></div>			
 			</div>
+		</div>
 			);
 	}
 }

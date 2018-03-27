@@ -52,7 +52,7 @@ import "./sweet-alert.css"
 
 	render() {
 		return (
-		<div> 
+		<div className="innovadordiv"> 
 			
 			<div className="container">
 			<div className="jumbotron">

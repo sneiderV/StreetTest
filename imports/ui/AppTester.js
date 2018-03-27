@@ -24,7 +24,7 @@ export default class AppTester extends Component {
 
     render() {
         return (
-        <div>
+        <div className="testerdiv">
 
             <div className="container">
             <div className="jumbotron">

@@ -45,7 +45,7 @@ export default class DetalleProyecto extends Component {
 
 	render() {
 		return (
-		<div>
+		<div className="historialdiv">
 		    <div className="jumbotron container">
 			
 			<h2 className="display-4">Proyecto: {this.props.proyecto.nombre}</h2>

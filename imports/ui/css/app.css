@@ -31,9 +31,36 @@ button:hover:before {
  width: 100%;
 }
 
-.inicio {
- background-image:url('./fondo.jpg');
- /*background-color: green;*/
- /*background-image: url("fondo.jpg");*/
+.iniciodiv {
+ /*background-image:url(https://t3.ftcdn.net/jpg/01/44/83/28/240_F_144832800_fhxTEyqQIK2sMKX9CS5y9sjT08L6k0GF.jpg);*/
+ background-image: url(https://ak6.picdn.net/shutterstock/videos/4805756/thumb/1.jpg);
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 1000hv;
+}
+.testerdiv {
+	/*background-color: green;*/
+	background-image:url(https://wallpaperscraft.com/image/books_notebooks_watch_pens_pen_67310_1920x1080.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
+.innovadordiv {
+	/*background-image:url(https://saludmovil.com/wp-content/uploads/2018/01/Creativity-May-Rely-on-Teamwork-in-the-Brain-MainPhoto.jpg);*/
+	/*background-image: url(http://www.chinadaily.com.cn/business/img/attachement/jpg/site1/20141020/001aa018f80215ae96ab3c.jpg);*/
+	background-image: url(https://www.celi.it/wp-content/uploads/2016/09/Innovative-SMEs.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.historialdiv {
+	background-image:url(https://image.freepik.com/vetores-gratis/projeto-de-fundo-de-mosaico-de-triangulo-abstrato_1164-1262.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%
+}
+
+.espacio{
+	height: 150%;
+}
