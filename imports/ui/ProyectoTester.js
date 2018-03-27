@@ -46,11 +46,13 @@ export default class ProyectoTester extends Component {
 	render() {
 		return (
 			<div>
-				<div className="cuadroProyectoInnovador"> 
-					<h6><strong>{this.props.proyecto.nombre}</strong></h6>
-					<a href={this.props.proyecto.url}>URL del proyecto</a>
-					<p className="tareas">{"Tareas: "+ this.props.proyecto.tareas}</p>
-					<button type="button" onClick={()=>{this.hacerTest(this.props.proyecto.nombre)}}>Test</button>
+				<div className="card"> 
+					<h5 className="card-header">{this.props.proyecto.nombre}</h5>
+					<div className="card-body">
+                     <h6 className="card-title"><a href={this.props.proyecto.url}>URL del proyecto</a></h6>
+					 <p className="card-text"><strong>Tareas</strong>{this.props.proyecto.tareas}</p>
+					 <button type="button" class="btn btn-outline-success" onClick={()=>{this.hacerTest(this.props.proyecto.nombre)}}>Test</button>
+                    </div>
 				</div>
 				<br/>
 			</div>
