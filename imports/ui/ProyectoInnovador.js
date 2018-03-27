@@ -15,6 +15,7 @@ export default class ProyectoInnovador extends Component {
 
 	render() {
 		return (
+		<div>
 			<div className="card">
 				<h5 className="card-header">{this.props.proyecto.nombre}</h5>
 				<div className="card-body"> 
@@ -23,6 +24,8 @@ export default class ProyectoInnovador extends Component {
 					<button type="button" className="btn btn-outline-info" onClick={this.verDetalleProyecto.bind(this)} >Ver detalle</button>
 				</div>
 			</div>
+			<br/>
+		</div>
 		);
 	}
 }
