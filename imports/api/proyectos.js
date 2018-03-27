@@ -63,13 +63,13 @@ Meteor.methods({
 		check(nombreProyecto, String);
 		check(puntaje,String);
 		var pun = parseInt(puntaje);
-		Proyectos.update(
-			{nombreProyecto:nombreProyecto, comentarios.propietario: nombreUsuario},
-			{ $set: {
-					comentarios.puntaje:puntaje;
-				}
-			}
-		)
+		// Proyectos.update(
+		// 	{nombreProyecto:nombreProyecto, comentarios.propietario: nombreUsuario},
+		// 	{ $set: {
+		// 			comentarios.puntaje:puntaje;
+		// 		}
+		// 	}
+		// )
 
 	},
 	"misPuntos"(nombreUsuario){
