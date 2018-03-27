@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import ProyectoTester from "./ProyectoTester.js";
 import {mount} from "react-mounter";
-import HistorialTester from "./HistorialTester"
+import HistorialTester from "./historialTester"
 
 export default class AppTester extends Component {
     
