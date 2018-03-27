@@ -4,7 +4,14 @@ import ProyectoTester from "./ProyectoTester.js";
 import {mount} from "react-mounter";
 import HistorialTester from "./historialTester"
 
-export default class AppTester extends Component {
+//-----------Actualización de Meteor ----------------
+import { withTracker } from "meteor/react-meteor-data";
+
+//collection
+import { Proyectos } from "../api/proyectos.js";
+//---------------------------------------------------
+
+export class AppTester extends Component {
     
     irHistorial(){
         mount(HistorialTester, {proyectos: this.props.proyectos})
@@ -55,3 +62,13 @@ export default class AppTester extends Component {
         );
     }
 }
+
+export default withTracker(()=>{
+  //Se suscribe a la publicación de proyectos
+  Meteor.subscribe("proyectos");
+
+  return {
+    proyectos: Proyectos.find({}, {sort: {createdAt: -1}}).fetch(),
+  };
+
+})(AppTester);

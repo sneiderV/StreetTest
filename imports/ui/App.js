@@ -3,19 +3,17 @@ import {mount} from "react-mounter";
 import AppInnovador from "./AppInnovador.js";
 import AppTester from "./AppTester.js";
 import "./css/app.css"
-import { withTracker } from "meteor/react-meteor-data";
 
 //Manejo de sign in/up
 import AccountsUI from "./AccountsUI";
 
-//collection
-import { Proyectos } from "../api/proyectos.js";
+
 
 /**
  * Componente de pantalla principal
  * props(withTracker): proyectos, currentUser
  **/
-export class App extends Component {
+export default class App extends Component {
 
 	ingreseCuentaAlert(){
 		alert("Debe ingresar a su cuenta para realizar esta acción");
@@ -25,16 +23,14 @@ export class App extends Component {
 
 		 // FlowRouter.go("/appinnovador");
 		Meteor.user() ?
-			mount(AppInnovador,{proyectos: this.props.proyectos,
-													ingreseCuentaAlert: this.ingreseCuentaAlert})
+			mount(AppInnovador,{ingreseCuentaAlert: this.ingreseCuentaAlert})
 		:	this.ingreseCuentaAlert();
 	}
 
 	cambiarPantallaTester(){
 		 // FlowRouter.go("/appinnovador");
 		Meteor.user() ?
-			mount(AppTester,{proyectos: this.props.proyectos,
-													ingreseCuentaAlert: this.ingreseCuentaAlert})
+			mount(AppTester,{ingreseCuentaAlert: this.ingreseCuentaAlert})
 		:	this.ingreseCuentaAlert();
 	}
 
@@ -70,13 +66,3 @@ export class App extends Component {
 	}
 }
 
-export default withTracker(()=>{
-	//Se suscribe a la publicación de proyectos
-	Meteor.subscribe("proyectos");
-
-	return {
-		proyectos: Proyectos.find({}, {sort: {createdAt: -1}}).fetch(),
-		currentUser: Meteor.user()
-	};
-
-})(App);

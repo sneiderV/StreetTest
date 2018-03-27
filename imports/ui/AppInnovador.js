@@ -7,11 +7,18 @@ import "./swal-forms.js"
 import "./sweet-alert.js"
 import "./sweet-alert.css"
 
+//-----------Actualización de Meteor ----------------
+import { withTracker } from "meteor/react-meteor-data";
+
+//collection
+import { Proyectos } from "../api/proyectos.js";
+//---------------------------------------------------
+
 /**
  * Componente que representa la pantalla "AppInnovador"
  * props: proyectos
  **/
- export default class AppInnovador extends Component {
+ export class AppInnovador extends Component {
 
 	pop(){
 	    swal.withForm({
@@ -75,3 +82,13 @@ import "./sweet-alert.css"
 		);
 	}
  }
+
+export default withTracker(()=>{
+  //Se suscribe a la publicación de proyectos
+  Meteor.subscribe("proyectos");
+
+  return {
+    proyectos: Proyectos.find({}, {sort: {createdAt: -1}}).fetch(),
+  };
+
+})(AppInnovador);
