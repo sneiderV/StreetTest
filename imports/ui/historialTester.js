@@ -14,7 +14,6 @@ export default class HistorialTester extends Component {
           return probado;
         });
     let suma = 0;
-    console.log("comentarios probados: " + JSON.stringify(comentariosProbados));
     comentariosProbados.forEach((comentario)=>{
     	suma += comentario.puntaje;
     })
@@ -22,16 +21,19 @@ export default class HistorialTester extends Component {
 
 	}	
 
-  render() {
-      return (
-          <div>
-          <h1>{"Usuario: " + Meteor.user().emails[0].address }</h1>
-          <h3>{"Total de puntos: " + this.sumarPuntos()}</h3>
-
-          <h5>Estos son los puntos acumulados en StreetTest. </h5>
-
-
-          </div>
-          );
-  }
+    render() {
+        return (
+           <div className="container"> 
+           		<div className="jumbotron">
+                    <h1 className="display-4">{"Usuario: " + Meteor.user().emails[0].address }</h1>
+                    <hr className="my-4"/>
+                   <center>
+                    <p  className="lead">{"Los puntos que ha acumulado hasta el momento en StreetTest son: "+ }</p>
+                    <h1 className="display-4">{this.sumarPuntos()+"."}</h1>
+                    <button type="button" class="btn btn-outline-danger">Redimir</button>
+                   </center>
+                </div>
+            </div>
+            );
+    }
 }
