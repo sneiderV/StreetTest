@@ -5,13 +5,16 @@ export default class historialTester extends Component {
 
     render() {
         return (
-            <div>
-            <h1>Nombre: usuario</h1>
-            <h3>Total de puntos: </h3>
-
-            <h5>Estos son los puntos acumulados en StreetTest: </h5>
-
-
+           <div className="container"> 
+           		<div className="jumbotron">
+                    <h1 className="display-4">Nombre: usuario</h1>
+                    <hr className="my-4"/>
+                   <center>
+                    <p  className="lead">Los puntos que ha acumulado hasta el momento en StreetTest</p>
+                    <h1 className="display-4">50 puntos.</h1>
+                    <button type="button" class="btn btn-outline-danger">Redimir</button>
+                   </center>
+                </div>
             </div>
             );
     }
