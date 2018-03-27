@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {mount} from "react-mounter";
 import AppInnovador from "./AppInnovador.js";
 import AppTester from "./AppTester.js";
-
+import "./css/app.css"
 import { withTracker } from "meteor/react-meteor-data";
 
 //collection
@@ -27,14 +27,18 @@ export class App extends Component {
 	render() {
 		
 		return (
-			// se diseña parte comun 
+			// se diseña parte comun s
 			<div>
+				<div className="inicio">
 				<h1>Street Test</h1>
 				<h4>Quieres ingresar como:</h4>
 				{/*botones de cada uno llevan  a pantallas de login distinto, se debe pasr por parámetro el rol*/}
+				<center>
 				<button id="Innovador" onClick={this.cambiarPantallaInnovador.bind(this)}>Innovador</button>
+				<span></span>
 				<button id="Tester" onClick={this.cambiarPantallaTester.bind(this)}>Tester</button>
-				
+				</center>
+				</div>
 			</div>
 			);
 	}

@@ -56,10 +56,23 @@ Meteor.methods({
 							} 
 		 	}
 		)
-
+	},
+	//recordar que el puntaje que se le asigna a un usuario es el mismo numero de la tarea
+	"asignarPuntaje"(nombreProyecto,nombreUsuario,puntaje){
+		check(nombreUsuario, String);
+		check(nombreProyecto, String);
+		check(puntaje,String);
+		var pun = parseInt(puntaje);
+		Proyectos.update(
+			{nombreProyecto:nombreProyecto, comentarios.propietario: nombreUsuario},
+			{ $set: {
+					comentarios.puntaje:puntaje;
+				}
+			}
+		)
 
 	},
-	"asignarPuntaje"(){
+	"misPuntos"(nombreUsuario){
 
 	}
 });
