@@ -24,7 +24,7 @@ export class App extends Component {
 	cambiarPantallaInnovador(){
 
 		 // FlowRouter.go("/appinnovador");
-		this.props.currentUser ?
+		Meteor.user() ?
 			mount(AppInnovador,{proyectos: this.props.proyectos,
 													ingreseCuentaAlert: this.ingreseCuentaAlert})
 		:	this.ingreseCuentaAlert();
@@ -32,11 +32,10 @@ export class App extends Component {
 
 	cambiarPantallaTester(){
 		 // FlowRouter.go("/appinnovador");
-		 if(this.props.currentUser)
+		Meteor.user() ?
 			mount(AppTester,{proyectos: this.props.proyectos,
 													ingreseCuentaAlert: this.ingreseCuentaAlert})
-		else
-			this.ingreseCuentaAlert();
+		:	this.ingreseCuentaAlert();
 	}
 
 	render() {

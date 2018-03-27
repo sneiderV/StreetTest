@@ -7,12 +7,14 @@ export default class DetalleProyecto extends Component {
 
 	constructor(props){
     super(props);
+    let comentarios = this.props.proyecto.comentarios;
+    let tPromedio = comentarios.length<=0 ? 0
+    							: comentarios.map((comentario)=>comentario.tiempo)
+													      	.reduce((timeA,timeB)=>{
+													      		return Number(timeA) + Number(timeB)})
     this.state ={
       nroTarea: "",
-      tiempoPromedio: this.props.proyecto.comentarios
-      	.map((comentario)=>comentario.tiempo)
-	      	.reduce((timeA,timeB)=>{
-	      		return Number(timeA) + Number(timeB)})/*/this.props.proyecto.comentarios.length*/
+      tiempoPromedio: tPromedio
     }
   }
 

@@ -19,6 +19,11 @@ if (Meteor.isServer) {
 Meteor.methods({
 	"proyectos.insert"(nombre, url, tema, descripcion, tareas) {
 
+		//asegurarse de que este loggeado para poder ingresar un proyecto
+		if (!this.userId) {
+			throw new Meteor.Error("No autorizado");
+		}
+
 		check(nombre, String);
 		check(url, String);
 		check(tema, String);
@@ -33,7 +38,8 @@ Meteor.methods({
 			tema,
 			descripcion,
 			tareas,
-			comentarios
+			comentarios,
+			creador: this.userId
 		});
 	},
 	//inserta comentario del proyecto, sin modificar puntajes
@@ -43,6 +49,10 @@ Meteor.methods({
 		check(tiempo, String);
 		check(opinion, String);
 
+		if (!this.userId) {
+			throw new Meteor.Error("No autorizado");
+		}
+
 		//buscar proyecto por nombre
 		//insertar comentario en arreglo de ese único proyecto
 		Proyectos.update(
@@ -51,7 +61,9 @@ Meteor.methods({
 		  							{
 		  								tarea,
 		  								tiempo,
-		  								opinion
+		  								opinion,
+		  								creador: this.userId,
+		  								puntaje: 0
 		  							} 
 							} 
 		 	}
