@@ -23,13 +23,11 @@ export class App extends Component {
 
 	cambiarPantallaInnovador(){
 
-		console.log(JSON.stringify(Meteor.user()))
 		 // FlowRouter.go("/appinnovador");
-		if(this.props.currentUser)
+		this.props.currentUser ?
 			mount(AppInnovador,{proyectos: this.props.proyectos,
 													ingreseCuentaAlert: this.ingreseCuentaAlert})
-		else
-			this.ingreseCuentaAlert();
+		:	this.ingreseCuentaAlert();
 	}
 
 	cambiarPantallaTester(){
