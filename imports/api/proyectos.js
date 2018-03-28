@@ -9,14 +9,14 @@ export const Proyectos = new Mongo.Collection("proyectos");
 if (Meteor.isServer) {
 
 	//Trae todos los proyectos que no creé yo (AppTester)
-	Meteor.publish("proyectosNoUsuario", function publicacionProyectos(){
+	Meteor.publish("proyectosNoUsuario", function publicacionProyectosNoUsuario(){
 		return Proyectos.find({
 			 creador: { $ne: this.userId }  
 		});
 	});
 
 	//Trae solo los proyectos creados por el usuario
-	Meteor.publish("proyectosUsuario", function publicacionProyectos(){
+	Meteor.publish("proyectosUsuario", function publicacionProyectosUsuario(){
 		return Proyectos.find({
 			creador: this.userId
 		});
@@ -83,20 +83,18 @@ Meteor.methods({
 		check(nombreProyecto, String);
 		check(numTarea,String);
 		var pun = parseInt(numTarea);
-		return Proyectos.find(
+		Proyectos.update(
 			{
-				// $and:
-				// [
-					// nombre:nombreProyecto
-					// {comentarios: {creador: testerId, tarea: numTarea}}
-				// ]
+				nombre : nombreProyecto ,
+				"comentarios.tarea":numTarea
+			} , 
+			{
+				$set: 
+				{
+					"comentarios.$.puntaje": pun
+				}
 			}
-			// ,{ 
-			// 	$set:
-			// 	{comentarios:{puntaje:pun} }
-			// }
-		)
-
+			)
 	},
 	"misPuntos"(nombreUsuario){
 
