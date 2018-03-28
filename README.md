@@ -4,16 +4,22 @@ Este es el tercer proyecto del curso Desarrollo Web de la Universidad de Los And
 El presente proyecto fue desarrollado usando las siguientes tecnologías:
 
 **Servidor público:** 
+
 Heroku.
+
 **Back End:** 
+
 MongoDB, Meteor, JavaScript.
+
 **Front End:** 
+
 React, JavaScript, CSS, Boostrap, SweetAlert.
 
 #Despligue
+
 Si desea interactuar con el estado actual de nuestra aplicación , solo necesita abrir en su navegador favorito la siguiente URL: ... , 
 pero si usted prefiere descargar el proyecto, debe ejecutar los sieguientes comandos en el directorio donde ubique el proyecto:
-* En el directorio raízz del proyecto
+* En el directorio raíz del proyecto
 
 > meteor npm i
 
