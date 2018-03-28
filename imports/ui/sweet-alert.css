@@ -14,7 +14,7 @@ body.stop-scrolling {
   top: 0;
   bottom: 0;
   display: none;
-  z-index: 10000; }
+  z-index: 100; }
 
 .sweet-alert {
   overflow: auto !important;
@@ -24,7 +24,8 @@ body.stop-scrolling {
   padding: 17px;
   border-radius: 5px;
   text-align: center;
-  position: fixed;
+  position: absolute;
+  top: 50%;
   left: 30%;
   margin-top: 0 !important;
   max-height: 70%;

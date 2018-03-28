@@ -1,6 +1,6 @@
 .swal-form {
   padding-top: 0%;
-  overflow: auto;
+  overflow: hidden;
   height: auto;
 }
 
@@ -27,4 +27,5 @@
   width: initial !important;
   height: initial !important;
   display: initial !important;
+  padding-bottom: 50%
 }
