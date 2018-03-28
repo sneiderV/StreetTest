@@ -22,16 +22,16 @@ export default class App extends Component {
 
 	cambiarPantallaInnovador(){
 
-		 // FlowRouter.go("/appinnovador");
 		Meteor.user() ?
-			mount(AppInnovador,{ingreseCuentaAlert: this.ingreseCuentaAlert})
+		 	FlowRouter.go("/AppInnovador")
+			// mount(AppInnovador)
 		:	this.ingreseCuentaAlert();
 	}
 
 	cambiarPantallaTester(){
-		 // FlowRouter.go("/appinnovador");
 		Meteor.user() ?
-			mount(AppTester,{ingreseCuentaAlert: this.ingreseCuentaAlert})
+			// mount(AppTester)
+			FlowRouter.go("/AppTester")
 		:	this.ingreseCuentaAlert();
 	}
 

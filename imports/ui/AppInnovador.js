@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {mount} from "react-mounter";
 import ProyectoInnovador from "./ProyectoInnovador.js";
 import swal from 'sweetalert';
 import "./swal-forms.css"

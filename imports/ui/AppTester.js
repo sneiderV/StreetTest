@@ -13,8 +13,15 @@ import { Proyectos } from "../api/proyectos.js";
 
 export class AppTester extends Component {
     
+    ingreseCuentaAlert(){
+        swal("Ingresa ya!", "Debe ingresar a su cuenta para realizar esta acción", "error");
+    }
+        
     irHistorial(){
-        mount(HistorialTester, {proyectos: this.props.proyectos})
+        // mount(HistorialTester)
+      Meteor.user() ?
+      FlowRouter.go("/HistorialTester")
+      :  this.ingreseCuentaAlert();
     }
 
     renderProyectos(){

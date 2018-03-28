@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import swal from 'sweetalert';
-export default class HistorialTester extends Component {
+
+//-----------Actualización de Meteor ----------------
+import { withTracker } from "meteor/react-meteor-data";
+//collection
+import { Proyectos } from "../api/proyectos.js";
+//---------------------------------------------------
+
+export class HistorialTester extends Component {
 	
 	sumarPuntos(){
 		let comentariosProbados = [];
@@ -42,3 +49,13 @@ export default class HistorialTester extends Component {
             );
     }
 }
+
+export default withTracker(()=>{
+  //Se suscribe a la publicación de proyectos
+  Meteor.subscribe("proyectosNoUsuario");
+
+  return {
+    proyectos: Proyectos.find({}, {sort: {createdAt: -1}}).fetch(),
+  };
+
+})(HistorialTester);
