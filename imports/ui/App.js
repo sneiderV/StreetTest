@@ -3,6 +3,7 @@ import {mount} from "react-mounter";
 import AppInnovador from "./AppInnovador.js";
 import AppTester from "./AppTester.js";
 import "./css/app.css"
+import swal from 'sweetalert';
 
 //Manejo de sign in/up
 import AccountsUI from "./AccountsUI";
@@ -16,7 +17,7 @@ import AccountsUI from "./AccountsUI";
 export default class App extends Component {
 
 	ingreseCuentaAlert(){
-		alert("Debe ingresar a su cuenta para realizar esta acción");
+		swal("Ingresa ya!", "Debe ingresar a su cuenta para realizar esta acción", "error");
 	}
 
 	cambiarPantallaInnovador(){

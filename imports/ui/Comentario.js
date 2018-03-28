@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import swal from 'sweetalert';
 
 export default class Comentario extends Component {
 
 	darPuntos(){
 		// Meteor.call("asignarPuntaje",this.props.nombreProyecto,this.props.comentario.creador,this.props.comentario.tarea);
-		alert("Se autoriza incremento de puntos en mongo del comentario");
+		//alert("Se autoriza incremento de puntos en mongo del comentario");
+		swal("Diste puntos","El Tester hizo un buen trabajo, ¿verdad?","success");
 	}
 
 	render() {
