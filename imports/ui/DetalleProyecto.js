@@ -11,7 +11,7 @@ export default class DetalleProyecto extends Component {
     let tPromedio = comentarios.length<=0 ? 0
     							: comentarios.map((comentario)=>comentario.tiempo)
 													      	.reduce((timeA,timeB)=>{
-													      		return Number(timeA) + Number(timeB)})
+													      		return Number(timeA) + Number(timeB)})/comentarios.length;
     this.state ={
       nroTarea: "",
       tiempoPromedio: tPromedio
@@ -65,6 +65,7 @@ export default class DetalleProyecto extends Component {
 		 				return <Comentario 
 		 				key={comentario._id}
 		 				comentario={comentario}
+		 				nombreProyecto={this.props.proyecto.nombre}
 		 				/>
 		 			})
 		 			}

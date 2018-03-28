@@ -85,10 +85,11 @@ import { Proyectos } from "../api/proyectos.js";
 
 export default withTracker(()=>{
   //Se suscribe a la publicación de proyectos
-  Meteor.subscribe("proyectos");
+  Meteor.subscribe("proyectosUsuario");
 
   return {
     proyectos: Proyectos.find({}, {sort: {createdAt: -1}}).fetch(),
+    currentUser: Meteor.user()
   };
 
 })(AppInnovador);

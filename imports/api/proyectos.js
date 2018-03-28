@@ -8,10 +8,18 @@ export const Proyectos = new Mongo.Collection("proyectos");
 //"meteor remove autopublish": Como se hizo esto, se debe especificar especificamente qué se envía al cliente.
 if (Meteor.isServer) {
 
-	Meteor.publish("proyectos", function publicacionProyectos(){
+	//Trae todos los proyectos que no creé yo (AppTester)
+	Meteor.publish("proyectosNoUsuario", function publicacionProyectos(){
+		return Proyectos.find({
+			 creador: { $ne: this.userId }  
+		});
+	});
 
-		//Trae todos los proyectos
-		return Proyectos.find();
+	//Trae solo los proyectos creados por el usuario
+	Meteor.publish("proyectosUsuario", function publicacionProyectos(){
+		return Proyectos.find({
+			creador: this.userId
+		});
 	});
 }
 
@@ -70,18 +78,24 @@ Meteor.methods({
 		)
 	},
 	//recordar que el puntaje que se le asigna a un usuario es el mismo numero de la tarea
-	"asignarPuntaje"(nombreProyecto,nombreUsuario,puntaje){
-		check(nombreUsuario, String);
+	"asignarPuntaje"(nombreProyecto,testerId,numTarea){
+		check(testerId, String);
 		check(nombreProyecto, String);
-		check(puntaje,String);
-		var pun = parseInt(puntaje);
-		// Proyectos.update(
-		// 	{nombreProyecto:nombreProyecto, comentarios.propietario: nombreUsuario},
-		// 	{ $set: {
-		// 			comentarios.puntaje:puntaje;
-		// 		}
-		// 	}
-		// )
+		check(numTarea,String);
+		var pun = parseInt(numTarea);
+		return Proyectos.find(
+			{
+				// $and:
+				// [
+					// nombre:nombreProyecto
+					// {comentarios: {creador: testerId, tarea: numTarea}}
+				// ]
+			}
+			// ,{ 
+			// 	$set:
+			// 	{comentarios:{puntaje:pun} }
+			// }
+		)
 
 	},
 	"misPuntos"(nombreUsuario){

@@ -65,7 +65,7 @@ export class AppTester extends Component {
 
 export default withTracker(()=>{
   //Se suscribe a la publicación de proyectos
-  Meteor.subscribe("proyectos");
+  Meteor.subscribe("proyectosNoUsuario");
 
   return {
     proyectos: Proyectos.find({}, {sort: {createdAt: -1}}).fetch(),
