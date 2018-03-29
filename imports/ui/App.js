@@ -17,7 +17,7 @@ import AccountsUI from "./AccountsUI";
 export default class App extends Component {
 
 	ingreseCuentaAlert(){
-		swal("Ingresa ya!", "Debe ingresar a su cuenta para realizar esta acción", "error");
+		swal("Ingresa ya!", "Debes ingresar a tu cuenta para realizar esta acción", "error");
 	}
 
 	cambiarPantallaInnovador(){

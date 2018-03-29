@@ -14,7 +14,7 @@ import { Proyectos } from "../api/proyectos.js";
 export class AppTester extends Component {
     
     ingreseCuentaAlert(){
-        swal("Ingresa ya!", "Debe ingresar a su cuenta para realizar esta acción", "error");
+        swal("Ingresa ya!", "Debes ingresar a tu cuenta para realizar esta acción", "error");
     }
         
     irHistorial(){

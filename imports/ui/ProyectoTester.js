@@ -16,14 +16,14 @@ export default class ProyectoTester extends Component {
 	hacerTest(nombreProyecto){
 		swal.withForm({
             title: this.props.proyecto.nombre,
-            text: 'Porfavor ingrese los datos para crear su prueba.',
+            text: 'Por favor ingresa los datos para registrar tu prueba.',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
             confirmButtonText: 'Crear',
             // closeOnConfirm: true,
             formFields: [
             { id: 'tarea', placeholder:'Número de la tarea que quieres realizar.', required: true },
-            { id: 'tiempo', placeholder:'Ingresa el tiempo que tomo hacer la tarea en MINUTOS.', required: true },
+            { id: 'tiempo', placeholder:'En MINUTOS, ingresa el tiempo que tomo hacer la tarea .', required: true },
             { id: 'opinion', placeholder:'Danos tu comentario.', required: true }
             ]
             
@@ -39,9 +39,6 @@ export default class ProyectoTester extends Component {
         });
 	}
 
-    hacerTest1(){
-
-    }
 
 	render() {
 		return (

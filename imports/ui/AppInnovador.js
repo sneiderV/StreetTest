@@ -22,7 +22,7 @@ import { Proyectos } from "../api/proyectos.js";
 	pop(){
 	    swal.withForm({
 	      title: 'Crear Proyecto',
-	      text: 'Porfavor ingrese los datos para crear su proyecto.',
+	      text: 'Por favor ingresa los datos para crear tu proyecto.',
 	      showCancelButton: true,
 	      confirmButtonColor: '#DD6B55',
 	      confirmButtonText: 'Crear',
@@ -41,7 +41,7 @@ import { Proyectos } from "../api/proyectos.js";
 	          // Hace insert a collection
 	          Meteor.call("proyectos.insert", this.swalForm.nombre, this.swalForm.url, 
 	              this.swalForm.tema, this.swalForm.descripcion, this.swalForm.tareas);
-	          swal("Buen trabajo!", "Tu proyecto fue creado, espara por los comentarios", "success");
+	          swal("Buen trabajo!", "Tu proyecto fue creado, espera por los comentarios", "success");
 	          console.log(this.swalForm); // lanza un objeto con los parametros que fueron ingresados por el usuario
 	      }
 	  });
