@@ -15,9 +15,9 @@ MongoDB, Meteor, JavaScript.
 
 React, JavaScript, CSS, Boostrap, SweetAlert.
 
-#Despligue
+# Despligue
 
-Si desea interactuar con el estado actual de nuestra aplicación , solo necesita abrir en su navegador favorito la siguiente URL: ... , 
+Si desea interactuar con el estado actual de nuestra aplicación , solo necesita abrir en su navegador favorito la siguiente URL: [Street Test](https://streettestapp.herokuapp.com/) , 
 pero si usted prefiere descargar el proyecto, debe ejecutar los sieguientes comandos en el directorio donde ubique el proyecto:
 * En el directorio raíz del proyecto
 
@@ -28,7 +28,7 @@ en el directorio raiz y ejecutar el siguiente comando:
 
 > meteor
 
-Tras realizar estos pasos, podrá visualizar la aplicación web abriendo cualquier navegador web en la url http://http://localhost:3000/
+Tras realizar estos pasos, podrá visualizar la aplicación web abriendo cualquier navegador web en la url http://localhost:3000/
 nota: Recuerde que estamos usando una base de datos en Mongo.
 
 ### Las imagenes que se usan en la aplicacion fueron tomados de los siguientes fuentes:
