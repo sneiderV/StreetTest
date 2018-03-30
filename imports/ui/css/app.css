@@ -70,3 +70,21 @@ button:hover:before {
 .cuadroInicio{
 	border-style: solid;
 }
+
+/*Customize sign in*/
+
+.login-link-text{
+	visibility: hidden;
+	position: relative;
+}
+
+
+.login-link-text:after{
+	visibility: visible;
+	position: absolute;
+	display: inline;
+	top: 0;
+	left: 0;
+	text-align: center;
+	content: "Ingresar";
+}

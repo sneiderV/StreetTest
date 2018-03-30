@@ -14,7 +14,9 @@ import { Proyectos } from "../api/proyectos.js";
 export class AppTester extends Component {
     
     ingreseCuentaAlert(){
-        swal("Ingresa ya!", "Debes ingresar a tu cuenta para realizar esta acción", "error");
+      swal("Ingresa ya!", "Debes ingresar a tu cuenta para realizar esta acción", "error");
+      FlowRouter.go("/");
+
     }
         
     irHistorial(){
@@ -37,6 +39,7 @@ export class AppTester extends Component {
     }
 
     render() {
+      if(!Meteor.user()) this.ingreseCuentaAlert();
         return (
         <div className="testerdiv">
 
@@ -76,6 +79,7 @@ export default withTracker(()=>{
 
   return {
     proyectos: Proyectos.find({}, {sort: {createdAt: -1}}).fetch(),
+    currentUser: Meteor.user()
   };
 
 })(AppTester);

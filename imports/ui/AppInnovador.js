@@ -19,6 +19,11 @@ import { Proyectos } from "../api/proyectos.js";
  **/
  export class AppInnovador extends Component {
 
+ 	ingreseCuentaAlert(){
+		swal("Ingresa ya!", "Debes ingresar a tu cuenta para realizar esta acción", "error");
+		FlowRouter.go("/");
+	}
+
 	pop(){
 	    swal.withForm({
 	      title: 'Crear Proyecto',
@@ -57,6 +62,7 @@ import { Proyectos } from "../api/proyectos.js";
  	}
 
 	render() {
+		if(!Meteor.user()) this.ingreseCuentaAlert();
 		return (
 		<div className="innovadordiv"> 
 			
