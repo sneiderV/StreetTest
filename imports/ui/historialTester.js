@@ -37,7 +37,7 @@ export class HistorialTester extends Component {
   }
 
     render() {
-      if(!currentUser) this.ingreseCuentaAlert();
+      if(!Meteor.user()) this.ingreseCuentaAlert();
       return (
         <div className="historialdiv">
          <div className="container"> 
