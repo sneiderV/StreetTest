@@ -40,10 +40,14 @@ export default class App extends Component {
 			// se diseña parte comun s
 		<div className="iniciodiv">
 			<div className="container">
+				<div>
+					<br/><br/><br/><br/>
+					<p className="line-1 anim-typewriter">Publica o realiza un Test de proyectos innovadores.</p>
+				</div>
 				<div className="row">
 				<div className="col-sm"></div>
 				<div className="col-sm">
-					<br/><br/><br/><br/><br/><br/><br/><br/>
+					<br/><br/>
 					<div className="cuadroInicio">
 					<center>
 					<br/><br/>
