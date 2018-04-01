@@ -31,13 +31,26 @@ button:hover:before {
  width: 100%;
 }
 
+.head {
+ /*background-image:url(https://t3.ftcdn.net/jpg/01/44/83/28/240_F_144832800_fhxTEyqQIK2sMKX9CS5y9sjT08L6k0GF.jpg);*/
+ background-image: url(https://ak6.picdn.net/shutterstock/videos/4805756/thumb/1.jpg);
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 100%;
+ width: 100%;
+ text-align: right;
+ padding-top: 5px;
+ padding-right: 5px;
+ padding-bottom: 1px;
+
+}
 .iniciodiv {
  /*background-image:url(https://t3.ftcdn.net/jpg/01/44/83/28/240_F_144832800_fhxTEyqQIK2sMKX9CS5y9sjT08L6k0GF.jpg);*/
  background-image: url(https://ak6.picdn.net/shutterstock/videos/4805756/thumb/1.jpg);
  background-repeat: no-repeat;
  background-size: cover;
  height: 100%;
- width: 100%
+ width: 100%;
 
 }
 .testerdiv {
