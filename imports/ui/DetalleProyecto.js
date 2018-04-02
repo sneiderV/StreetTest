@@ -42,16 +42,16 @@ export default class DetalleProyecto extends Component {
 			tiempoPromedio: this.definirTiempoPromedio(evt.target.value)
 		});
 	}
-
+	//className en vez de class
 	render() {
 		return (
 		<div className="historialdiv">
 		    <div className="jumbotron container">
 			
 			<h2 className="display-4">Proyecto: {this.props.proyecto.nombre}</h2>
-			<p class="lead">En esta sección puedes visualizar los comentarios de los Tester, 
+			<p className="lead">En esta sección puedes visualizar los comentarios de los Tester,
 			                 califica su colaboración y aprovecha sus opiniones para mejorar tu proyecto.</p>
-            <hr class="my-4"/>	
+            <hr className="my-4"/>
             <p>Filtra tus comentarios por el numero de tarea en el que quieras prestar mayor atención.</p>
 			<div className="form-group"> 
 				<input id="ip1" className="form-control" type="text"  placeholder="Ingre el número de la tarea" onInput={this.filtroPorNroTarea.bind(this)}/>
