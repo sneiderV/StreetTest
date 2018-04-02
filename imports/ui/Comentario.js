@@ -18,9 +18,11 @@ export default class Comentario extends Component {
 				<h5 className="card-title">{"Número de tarea realizada: "+this.props.comentario.tarea}</h5>
 				<p className="card-text">{"Tiempo (en minutos): "+this.props.comentario.tiempo}</p>
 				<p className="card-text">{"Opinión: "+this.props.comentario.opinion}</p>
-				<button class="btn btn-success" onClick={this.darPuntos.bind(this)}> Dar puntos</button>
+
+				<button className="btn btn-success" aria-label="dar puntos" onClick={this.darPuntos.bind(this)}> Dar puntos</button>
 				</div>
 			</div>
 		);
+        //Tomas Venegas: el boton debe tener className en vez de class y un aria-label para la accesibilidad
 	}
 }

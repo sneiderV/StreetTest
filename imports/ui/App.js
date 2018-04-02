@@ -39,6 +39,7 @@ export default class App extends Component {
 		return (
 			// se diseña parte comun s
 		<div className="iniciodiv">
+            <--Tomas Venegas: Consideren añadir un menu que permita al usuario ubicarse y volver al inicio facilmente-->
 			<div className="container">
 				<div>
 					<br/><br/><br/><br/>
