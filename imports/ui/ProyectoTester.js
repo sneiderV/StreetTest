@@ -47,13 +47,19 @@ import "./sweet-alert.css"
 
 
   render() {
+      let tareas = this.props.proyecto.tareas;
       return (
          <div>
          <div className="card"> 
          <h5 className="card-header">{this.props.proyecto.nombre}</h5>
          <div className="card-body">
          <h6 className="card-title"><a href={this.props.proyecto.url}>URL del proyecto</a></h6>
-         <p className="card-text"><strong>Tareas</strong>{this.props.proyecto.tareas}</p>
+         <p className="card-text"><strong>Tareas</strong></p>
+         <ol>
+         {
+            tareas.map(tarea => <li>{tarea.descripcion}</li>)
+         }
+         </ol>
          <button type="button" className="btn btn-outline-success" onClick={()=>{this.hacerTest(this.props.proyecto.nombre)}}>Test</button>
          </div>
          </div>
