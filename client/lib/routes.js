@@ -33,3 +33,9 @@ FlowRouter.route("/HistorialTester", {
 		mount(HistorialTester) 
 	}
 });
+
+FlowRouter.route("/PremiosTester", {
+	action: function(params, queryParams) {
+		mount(PremiosTester) 
+	}
+});

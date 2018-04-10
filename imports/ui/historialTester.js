@@ -36,6 +36,17 @@ export class HistorialTester extends Component {
     swal("Redimir puntos", "Proximamente estarán disponibles los productos que podra redimir con sus puntos.");
   }
 
+  ingreseCuentaAlert(){
+      swal("Ingresa ya!", "Debes ingresar a tu cuenta para realizar esta acción", "error");
+      FlowRouter.go("/");
+  }
+        
+  irPremios(){
+      Meteor.user() ?
+      FlowRouter.go("/PremiosTester")
+      :  this.ingreseCuentaAlert();
+    }
+
     render() {
       if(!Meteor.user()) this.ingreseCuentaAlert();
       return (
@@ -47,7 +58,7 @@ export class HistorialTester extends Component {
                  <center>
                   <p  className="lead">{"Los puntos que ha acumulado hasta el momento en StreetTest son: "}</p>
                   <h1 className="display-4">{this.sumarPuntos()+"."}</h1>
-                  <button type="button" className="btn btn-outline-danger" onClick={this.redimir}>Redimir</button>
+                  <button type="button" className="btn btn-outline-danger" onClick={this.irPremios.bind(this)}>Redimir</button>
                  </center>
               </div>
           </div>
