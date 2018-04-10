@@ -5,6 +5,7 @@ import swal from 'sweetalert';
 import { withTracker } from "meteor/react-meteor-data";
 //collection
 import { Proyectos } from "../api/proyectos.js";
+import PremiosTester from "./PremiosTester.js"
 //---------------------------------------------------
 
 export class HistorialTester extends Component {

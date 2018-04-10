@@ -5,6 +5,7 @@ import DetalleProyecto from "../../imports/ui/DetalleProyecto.js"
 
 import AppTester from "../../imports/ui/AppTester.js"
 import HistorialTester from "../../imports/ui/historialTester.js"
+import PremiosTester from "../../imports/ui/PremiosTester.js"
 
 FlowRouter.route("/",{
 	action: function(params, queryParams) {
