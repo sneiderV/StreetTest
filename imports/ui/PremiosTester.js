@@ -17,6 +17,7 @@ export class PremiosTester extends Component {
     render(){
 		if(!Meteor.user()) this.ingreseCuentaAlert();
 		return(
+		<div className="premiosdiv">
 			<div className="container">
 				<div className="jumbotron">
   					<h1 className="display-4">Premios!</h1>
@@ -133,6 +134,7 @@ export class PremiosTester extends Component {
 
 				</div>
 			</div> 
+	</div>
 			);
 	}
 }
