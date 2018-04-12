@@ -29,7 +29,7 @@ export default class DetalleProyecto extends Component {
     else{
     	return comentarios
 	      	.reduce((timeA,timeB)=>{
-	      		return Number(timeA) + Number(timeB)})
+	      		return Number(timeA) + Number(timeB)})/comentarios.length;
     }
   	
   }

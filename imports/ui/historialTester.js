@@ -9,15 +9,22 @@ import PremiosTester from "./PremiosTester.js"
 //---------------------------------------------------
 
 export class HistorialTester extends Component {
-	
+
+  // constructor(props){
+  //   super(props);
+  //   this.state ={
+  //     comentarios: []
+  //   }
+  // }
+
   ingreseCuentaAlert(){
     swal("Ingresa ya!", "Debes ingresar a tu cuenta para realizar esta acción", "error");
     FlowRouter.go("/");
   }
 
-	sumarPuntos(){
-		let comentarios = [];
-		this.props.proyectos
+  getComentarios(){
+    let comentarios = [];
+    this.props.proyectos
         .forEach((proyecto)=>{
           proyecto.comentarios.forEach((comentario)=>{
 
@@ -26,9 +33,13 @@ export class HistorialTester extends Component {
           });
 
         });
+    return comentarios;
+  }
+
+	sumarPuntos(){
+		let comentarios = this.getComentarios();
     let suma = 0;
     comentarios.forEach((comentario)=>{
-      console.log(" comentario es: " + JSON.stringify(comentario));
     	suma += comentario.puntaje;
     })
     return suma;
@@ -49,6 +60,24 @@ export class HistorialTester extends Component {
       :  this.ingreseCuentaAlert();
     }
 
+    renderTareasRealizadas(){
+      return this.props.proyectos.map((proyecto)=>{
+        return (<div><b>{proyecto.nombre}</b><br/>
+            {proyecto.comentarios.filter((c)=>c.creador===this.props.currentUser._id)
+              .map((comentario)=>(
+                <div>
+                  <p>
+                    {"tarea: "+comentario.tarea}<br/>
+                    {"opinion: "+comentario.opinion}<br/>
+                    <i>{"puntaje: "+comentario.puntaje}</i>
+                  </p>
+                </div>
+                ))}
+            
+                </div>);
+      });
+    }
+
     render() {
       if(!this.props.currentUser) this.ingreseCuentaAlert();
       return (
@@ -62,6 +91,9 @@ export class HistorialTester extends Component {
                   <h1 className="display-4">{this.sumarPuntos()+"."}</h1>
                   <button type="button" className="btn btn-outline-danger" onClick={this.irPremios.bind(this)}>Redimir</button>
                  </center>
+                 <div>
+                   {this.renderTareasRealizadas()}
+                 </div>
               </div>
           </div>
         </div>
