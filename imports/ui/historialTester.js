@@ -16,18 +16,19 @@ export class HistorialTester extends Component {
   }
 
 	sumarPuntos(){
-		let comentariosProbados = [];
+		let comentarios = [];
 		this.props.proyectos
         .forEach((proyecto)=>{
-          for (let i = proyecto.comentarios.length - 1; i >= 0; i--) {
-            let comentario = proyecto.comentarios[i];
-            probado = comentario.creador === Meteor.userId();
-            if(probado) comentariosProbados.push(comentario);
-          }
-          return probado;
+          proyecto.comentarios.forEach((comentario)=>{
+
+            probado = comentario.creador === this.props.currentUser._id;
+            if(probado) comentarios.push(comentario);
+          });
+
         });
     let suma = 0;
-    comentariosProbados.forEach((comentario)=>{
+    comentarios.forEach((comentario)=>{
+      console.log(" comentario es: " + JSON.stringify(comentario));
     	suma += comentario.puntaje;
     })
     return suma;
@@ -43,18 +44,18 @@ export class HistorialTester extends Component {
   }
         
   irPremios(){
-      Meteor.user() ?
+      this.props.currentUser ?
       FlowRouter.go("/PremiosTester")
       :  this.ingreseCuentaAlert();
     }
 
     render() {
-      if(!Meteor.user()) this.ingreseCuentaAlert();
+      if(!this.props.currentUser) this.ingreseCuentaAlert();
       return (
         <div className="historialdiv">
          <div className="container"> 
          		<div className="jumbotron">
-                  <h1 className="display-4">{"Usuario: " + Meteor.user().emails[0].address }</h1>
+                  <h1 className="display-4">{"Usuario: " + this.props.currentUser.emails[0].address }</h1>
                   <hr className="my-4"/>
                  <center>
                   <p  className="lead">{"Los puntos que ha acumulado hasta el momento en StreetTest son: "}</p>
@@ -70,7 +71,7 @@ export class HistorialTester extends Component {
 
 export default withTracker(()=>{
   //Se suscribe a la publicación de proyectos
-  Meteor.subscribe("proyectosNoUsuario");
+  Meteor.subscribe("proyectosComentadosUsuario");
 
   return {
     proyectos: Proyectos.find({}, {sort: {createdAt: -1}}).fetch(),

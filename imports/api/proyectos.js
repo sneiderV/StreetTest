@@ -10,18 +10,38 @@ if (Meteor.isServer) {
 
 	//Trae todos los proyectos que no creé yo (AppTester)
 	Meteor.publish("proyectosNoUsuario", function publicacionProyectosNoUsuario(){
+		if (!this.userId) {
+			throw new Meteor.Error("No autorizado");
+		}
+
 		return Proyectos.find({
 			 creador: { $ne: this.userId }  
 		});
 	});
 
-	//Trae solo los proyectos creados por el usuario
+	//Trae solo los proyectos creados por el usuario (AppInnovador)
 	Meteor.publish("proyectosUsuario", function publicacionProyectosUsuario(){
+		if (!this.userId) {
+			throw new Meteor.Error("No autorizado");
+		}
 		return Proyectos.find({
 			creador: this.userId
 		});
 	});
-}
+
+	//Trae solo los proyectos con comentarios creados por el usuario (HistorialTester)
+	Meteor.publish("proyectosComentadosUsuario", function publicacionComentariosUsuario(){
+		if (!this.userId) {
+			throw new Meteor.Error("No autorizado");
+		}
+		let proyectosComUs = Proyectos.find(
+		{ //Solo los comentarios creador por el tester actual
+			"comentarios.creador":this.userId
+		}
+		);
+
+		return proyectosComUs;
+	});
 
 //Definición de metodos (se hizo "meteor remove insecure" y es necesario definirlos para seguridad)
 Meteor.methods({
@@ -86,7 +106,13 @@ Meteor.methods({
 		Proyectos.update(
 			{
 				nombre : nombreProyecto ,
-				"comentarios.tarea":numTarea
+				comentarios:
+				{ $elemMatch: 
+					{ 
+						tarea: numTarea, 
+						creador: testerId 
+					} 
+				}			
 			} , 
 			{
 				$set: 
@@ -94,9 +120,11 @@ Meteor.methods({
 					"comentarios.$.puntaje": pun
 				}
 			}
-			)
+			);
 	},
-	"misPuntos"(nombreUsuario){
+	"misPuntos"(){
 
 	}
 });
+
+}

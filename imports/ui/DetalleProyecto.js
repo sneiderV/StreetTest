@@ -54,7 +54,7 @@ export default class DetalleProyecto extends Component {
             <hr class="my-4"/>	
             <p>Filtra tus comentarios por el numero de tarea en el que quieras prestar mayor atención.</p>
 			<div className="form-group"> 
-				<input id="ip1" className="form-control" type="text"  placeholder="Ingre el número de la tarea" onInput={this.filtroPorNroTarea.bind(this)}/>
+				<input id="ip1" className="form-control" type="text"  placeholder="Ingrese el número de la tarea" onInput={this.filtroPorNroTarea.bind(this)}/>
 			</div>
 			<p className="display-5" >{"El tiempo promedio para esta tarea es: "+this.state.tiempoPromedio+" minutos"}</p>
 			
@@ -62,6 +62,7 @@ export default class DetalleProyecto extends Component {
 				<h4>Listado de comentarios</h4>
 				<div className="container">
 		 			{this.props.proyecto.comentarios.filter((comentario)=>{return comentario.tarea.includes(this.state.nroTarea)}).map((comentario)=>{
+		 				// console.log("comentario_id: ", comentario._id)
 		 				return <Comentario 
 		 				key={comentario._id}
 		 				comentario={comentario}
