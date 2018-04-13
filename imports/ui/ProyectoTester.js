@@ -14,21 +14,25 @@ import "./sweet-alert.css"
     // var datos;
 
     hacerTest(nombreProyecto){
+        //arreglo de objetos: {value:"#tarea", text: "tarea #: descripcion"}
+        let tareas = this.props.proyecto.tareas.map((tarea,index)=>{
+                        let value=index+1;
+                        let text ="Tarea "+value+": "+tarea;
+                        return { value, text};
+                    });
       swal.withForm({
         title: '<a href="'+this.props.proyecto.url+'">'+this.props.proyecto.nombre+'</a>',
-        text: 'Por favor ingresa los datos para registrar tu prueba.\n',
+        text: 'Por favor ingresa los datos para registrar tu prueba.',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
         confirmButtonText: 'Crear',
             // closeOnConfirm: true,
             formFields: [
-            { id: 'tarea', type: 'number', placeholder:'Número de la tarea que quieres realizar.', required: true },
-            /*{ id: 'tarea',
-            type: 'select',
-            options: [
-                {value: '1', text: '1'},
-                {value: '2', text: '2'}
-                ]}*/
+            { id: 'tarea',
+                type: 'select',
+                options: tareas
+            },
+            
             { id: 'tiempo', type: 'number',placeholder:' En MINUTOS, ingresa el tiempo que tomo hacer la tarea .', required: true },
             { id: 'opinion', placeholder:'Danos tu comentario.', required: true }
             ]
@@ -36,6 +40,7 @@ import "./sweet-alert.css"
         }, function(isConfirm) {
             // Aqui estan los datos de los usuarios
             if (isConfirm === true) {
+                console.log("tareaS: "+this.swalForm.tareaS);
 
                 Meteor.call("comentarios.insert", nombreProyecto, this.swalForm.tarea, this.swalForm.tiempo, this.swalForm.opinion);
 
