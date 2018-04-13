@@ -60,21 +60,27 @@ export class HistorialTester extends Component {
       :  this.ingreseCuentaAlert();
     }
 
+
     renderTareasRealizadas(){
       return this.props.proyectos.map((proyecto)=>{
-        return (<div><b>{proyecto.nombre}</b><br/>
-            {proyecto.comentarios.filter((c)=>c.creador===this.props.currentUser._id)
-              .map((comentario)=>(
-                <div>
-                  <p>
-                    {"tarea: "+comentario.tarea}<br/>
-                    {"opinion: "+comentario.opinion}<br/>
-                    <i>{"puntaje: "+comentario.puntaje}</i>
-                  </p>
-                </div>
-                ))}
-            
-                </div>);
+        return (
+          <div><div className="card">
+            <h5 className="card-header">{proyecto.nombre}</h5>
+            <div className="card-body">
+                {proyecto.comentarios.filter((c)=>c.creador===this.props.currentUser._id)
+                  .map((comentario)=>(
+                    <div>
+                        <strong className="card-title">{"tarea: "+comentario.tarea}</strong>
+                        <p className="card-text">
+                          {"opinion: "+comentario.opinion}<br/>
+                          {"puntaje: "+comentario.puntaje}
+                        </p>
+                        <br/>
+                    </div>
+                    ))}
+            </div>
+          </div>
+          <br/></div>);
       });
     }
 
@@ -91,9 +97,9 @@ export class HistorialTester extends Component {
                   <h1 className="display-4">{this.sumarPuntos()+"."}</h1>
                   <button type="button" className="btn btn-outline-danger" onClick={this.irPremios.bind(this)}>Redimir</button>
                  </center>
-                 <div>
+                 <br/>
+                 <h4>Tareas Realizadas</h4>
                    {this.renderTareasRealizadas()}
-                 </div>
               </div>
           </div>
         </div>
