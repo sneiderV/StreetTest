@@ -42,7 +42,7 @@ if (Meteor.isServer) {
 
 		return proyectosComUs;
 	});
-
+}
 //Definición de metodos (se hizo "meteor remove insecure" y es necesario definirlos para seguridad)
 Meteor.methods({
 	"proyectos.insert"(nombre, url, tema, descripcion, tarea1, tarea2, tarea3) {
@@ -138,4 +138,4 @@ Meteor.methods({
 	}
 });
 
-}
+
