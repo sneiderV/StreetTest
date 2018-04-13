@@ -15,8 +15,8 @@ import "./sweet-alert.css"
 
     hacerTest(nombreProyecto){
       swal.withForm({
-        title: this.props.proyecto.nombre,
-        text: 'Por favor ingresa los datos para registrar tu prueba.',
+        title: '<a href="'+this.props.proyecto.url+'">'+this.props.proyecto.nombre+'</a>',
+        text: 'Por favor ingresa los datos para registrar tu prueba.\n',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
         confirmButtonText: 'Crear',
@@ -45,6 +45,19 @@ import "./sweet-alert.css"
         });
   }
 
+  renderTareasProyecto(){
+
+
+    return (
+        <ul>
+        {
+            this.props.proyecto.tareas.map((tarea,index)=>
+                <li><i>{"Tarea "+(index+1)+": "}</i>{tarea}</li>
+            )
+        }
+        </ul>
+    );
+  }
 
   render() {
       return (
@@ -53,7 +66,7 @@ import "./sweet-alert.css"
          <h5 className="card-header">{this.props.proyecto.nombre}</h5>
          <div className="card-body">
          <h6 className="card-title"><a href={this.props.proyecto.url}>URL del proyecto</a></h6>
-         <p className="card-text"><strong>Tareas</strong>{this.props.proyecto.tareas}</p>
+         <p className="card-text"><strong>Tareas</strong>{this.renderTareasProyecto()}</p>
          <button type="button" className="btn btn-outline-success" onClick={()=>{this.hacerTest(this.props.proyecto.nombre)}}>Test</button>
          </div>
          </div>

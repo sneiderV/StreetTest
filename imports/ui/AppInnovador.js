@@ -37,7 +37,9 @@ import { Proyectos } from "../api/proyectos.js";
 	      { id: 'url', placeholder:'Ingresa la URL de tu proyecto', required: true },
 	      { id: 'tema', placeholder:'Tema general', required: true },
 	      { id: 'descripcion', placeholder:'Ingrese una breve descripción', required: true },
-	      { id: 'tareas', placeholder:'Agregue las tareas que desea que se realicen', required: true }
+	      { id: 'tarea1', placeholder:'Agregue la tarea 1 a realizar por el tester', required: true },
+	      { id: 'tarea2', placeholder:'Agregue la tarea 2 a realizar por el tester', required: false },
+	      { id: 'tarea3', placeholder:'Agregue la tarea 3 a realizar por el tester', required: false }
 	      ]
 	      
 	  }, function(isConfirm) {
@@ -45,7 +47,8 @@ import { Proyectos } from "../api/proyectos.js";
 	      if (isConfirm === true) {
 	          // Hace insert a collection
 	          Meteor.call("proyectos.insert", this.swalForm.nombre, this.swalForm.url, 
-	              this.swalForm.tema, this.swalForm.descripcion, this.swalForm.tareas);
+	              this.swalForm.tema, this.swalForm.descripcion, this.swalForm.tarea1,
+	              this.swalForm.tarea2, this.swalForm.tarea3);
 	          swal("Buen trabajo!", "Tu proyecto fue creado, espera por los comentarios", "success");
 	          console.log(this.swalForm); // lanza un objeto con los parametros que fueron ingresados por el usuario
 	      }

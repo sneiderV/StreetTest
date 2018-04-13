@@ -45,7 +45,7 @@ if (Meteor.isServer) {
 
 //Definición de metodos (se hizo "meteor remove insecure" y es necesario definirlos para seguridad)
 Meteor.methods({
-	"proyectos.insert"(nombre, url, tema, descripcion, tareas) {
+	"proyectos.insert"(nombre, url, tema, descripcion, tarea1, tarea2, tarea3) {
 
 		//asegurarse de que este loggeado para poder ingresar un proyecto
 		if (!this.userId) {
@@ -56,9 +56,20 @@ Meteor.methods({
 		check(url, String);
 		check(tema, String);
 		check(descripcion, String);
-		check(tareas, String);
+		check(tarea1, String);
 
-
+		//A partir de las tareas ingresadas se crea arreglo de tareas
+		let tareas = []
+		tareas.push(tarea1);
+		if(tarea2) {
+			check(tarea2,String);
+			tareas.push(tarea2);	
+		}
+		if(tarea3) {
+			check(tarea3,String);
+			tareas.push(tarea3);	
+		}
+		console.log("tareas: " + tareas)
 		let comentarios = [];
 		Proyectos.insert({
 			nombre,
