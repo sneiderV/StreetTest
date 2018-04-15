@@ -1,4 +1,4 @@
-## StreetTest
+# StreetTest
 
 Este es el tercer proyecto del curso Desarrollo Web de la Universidad de Los Andes. StreetTest permite a todos los innovadores del mundo poner a prueba sus proyectos frente una comunidad que realiza criticas constructivas, estas personas reciben puntos por sus comentarios pero son los Innovadores quienes permiten esta bonificación, ya que no todos los comentarios podrían ser beneficiosos para el proyecto.
 El presente proyecto fue desarrollado usando las siguientes tecnologías:
@@ -15,7 +15,7 @@ MongoDB, Meteor, JavaScript.
 
 React, JavaScript, CSS, Boostrap, SweetAlert.
 
-# Despliegue
+## Despliegue
 
 Si desea interactuar con el estado actual de nuestra aplicación , solo necesita abrir en su navegador favorito la siguiente URL: [Street Test](https://streettestapp.herokuapp.com/) , 
 pero si usted prefiere descargar el proyecto, debe ejecutar los sieguientes comandos en el directorio donde ubique el proyecto:
@@ -33,7 +33,7 @@ Tras realizar estos pasos, podrá visualizar la aplicación web abriendo cualqui
 
 *nota: Recuerde que estamos usando una base de datos en Mongo.*
 
-## Despliegue de pruebas
+### Despliegue de pruebas
 
 Para observar las pruebas unitarias de la aplicación es necesario ejecutar el proyecto localmente.
 
@@ -53,9 +53,9 @@ Esto ejecutará la visualización de pruebas, accesible desde el navegador web e
 [Fondo AppTester](https://wallpaperscraft.com/image/books_notebooks_watch_pens_pen_67310_1920x1080.jpg) ,
 [Fondo detalles](https://image.freepik.com/vetores-gratis/projeto-de-fundo-de-mosaico-de-triangulo-abstrato_1164-1262.jpg)
 
-### Licencia
+## Licencia
 Este proyecto cuenta con la licencia estándar MIT license
 
-### Autores
+## Autores
 * Fabio Lopez  
 * Esneider Velandia
