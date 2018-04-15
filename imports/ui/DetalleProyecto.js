@@ -22,7 +22,7 @@ export default class DetalleProyecto extends Component {
   {
 
   	comentarios = this.props.proyecto.comentarios
-			.filter((comentario)=>{return comentario.tarea.includes(_nroTarea)})
+			.filter((comentario)=>{return _nroTarea==="" || comentario.tarea===_nroTarea})
       	.map((comentario)=>comentario.tiempo)
     if(comentarios.length===0)
     	return 0;
@@ -36,7 +36,6 @@ export default class DetalleProyecto extends Component {
 
 	filtroPorNroTarea(evt)
 	{
-		console.log(evt.target.value)
 		this.setState({
 			nroTarea : evt.target.value,
 			tiempoPromedio: this.definirTiempoPromedio(evt.target.value)
@@ -49,9 +48,9 @@ export default class DetalleProyecto extends Component {
 		    <div className="jumbotron container">
 			
 			<h2 className="display-4">Proyecto: {this.props.proyecto.nombre}</h2>
-			<p class="lead">En esta sección puedes visualizar los comentarios de los Tester, 
+			<p className="lead">En esta sección puedes visualizar los comentarios de los Tester, 
 			                 califica su colaboración y aprovecha sus opiniones para mejorar tu proyecto.</p>
-            <hr class="my-4"/>	
+            <hr className="my-4"/>	
             <p>Filtra tus comentarios por el numero de tarea en el que quieras prestar mayor atención.</p>
 			<div className="form-group"> 
 				<input id="ip1" className="form-control" type="text"  placeholder="Ingrese el número de la tarea" onInput={this.filtroPorNroTarea.bind(this)}/>
@@ -61,10 +60,10 @@ export default class DetalleProyecto extends Component {
 			<div className="container">
 				<h4>Listado de comentarios</h4>
 				<div className="container">
-		 			{this.props.proyecto.comentarios.filter((comentario)=>{return comentario.tarea.includes(this.state.nroTarea)}).map((comentario)=>{
+		 			{this.props.proyecto.comentarios.filter((comentario)=>{return this.state.nroTarea==="" || comentario.tarea===this.state.nroTarea}).map((comentario)=>{
 		 				// console.log("comentario_id: ", comentario._id)
 		 				return <Comentario 
-		 				key={comentario._id}
+		 				key={comentario.tarea+comentario.creador}
 		 				comentario={comentario}
 		 				nombreProyecto={this.props.proyecto.nombre}
 		 				/>

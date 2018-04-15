@@ -40,9 +40,8 @@ import "./sweet-alert.css"
         }, function(isConfirm) {
             // Aqui estan los datos de los usuarios
             if (isConfirm === true) {
-                console.log("tareaS: "+this.swalForm.tareaS);
 
-                Meteor.call("comentarios.insert", nombreProyecto, this.swalForm.tarea, this.swalForm.tiempo, this.swalForm.opinion);
+                Meteor.call("comentarios.insert", nombreProyecto, Number(this.swalForm.tarea), Number(this.swalForm.tiempo), this.swalForm.opinion);
 
                 swal("Buen trabajo!", "Tu comentario fue guardado, espera por tus puntos.", "success");
                 //swalForm // lanza un objeto con los parametros que fueron ingresados por el usuario

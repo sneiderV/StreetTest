@@ -72,8 +72,9 @@ export class HistorialTester extends Component {
                     <div>
                         <strong className="card-title">{"tarea: "+comentario.tarea}</strong>
                         <p className="card-text">
-                          {"opinion: "+comentario.opinion}<br/>
-                          {"puntaje: "+comentario.puntaje}
+                          {"opinion: "+comentario.opinion} <br/>
+                          {"puntaje: "+comentario.puntaje} <br/>
+                          {"tiempo: "+comentario.tiempo+" minutos"}
                         </p>
                         <br/>
                     </div>

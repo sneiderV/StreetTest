@@ -69,7 +69,6 @@ Meteor.methods({
 			check(tarea3,String);
 			tareas.push(tarea3);	
 		}
-		console.log("tareas: " + tareas)
 		let comentarios = [];
 		Proyectos.insert({
 			nombre,
@@ -84,8 +83,8 @@ Meteor.methods({
 	//inserta comentario del proyecto, sin modificar puntajes
 	"comentarios.insert"(nombre, tarea, tiempo, opinion){
 		check(nombre, String);
-		check(tarea, String);
-		check(tiempo, String);
+		check(tarea, Number);
+		check(tiempo, Number);
 		check(opinion, String);
 
 		if (!this.userId) {
@@ -112,11 +111,12 @@ Meteor.methods({
 	"asignarPuntaje"(nombreProyecto,testerId,numTarea){
 		check(testerId, String);
 		check(nombreProyecto, String);
-		check(numTarea,String);
+		check(numTarea,Number);
 		var pun = parseInt(numTarea);
 		Proyectos.update(
 			{
 				nombre : nombreProyecto ,
+				creador : this.userId,
 				comentarios:
 				{ $elemMatch: 
 					{ 
