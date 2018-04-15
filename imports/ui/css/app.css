@@ -1,7 +1,7 @@
 body  {
     background-image: url("fondo.jpg");
     }
-h1, h4 {
+h1, h4, h5 {
 	
 	text-align: center;
 }
@@ -82,6 +82,8 @@ button:hover {
 
 .cuadroInicio{
 	border-style: solid;
+	height: 80%;
+
 }
 /* Google Fonts */
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);

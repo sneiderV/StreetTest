@@ -45,7 +45,6 @@ export default class App extends Component {
 					<p className="line-1 anim-typewriter">Publica o realiza un Test de proyectos innovadores.</p>
 				</div>
 				<div className="row">
-				<div className="col-sm"></div>
 				<div className="col-sm">
 					<br/><br/>
 					<div className="cuadroInicio">
@@ -54,16 +53,24 @@ export default class App extends Component {
 					<h1 className="display-4">Street Test</h1>
 					<br/>
 					<h4>Quieres ingresar como:</h4>
-					{/*botones de cada uno llevan  a pantallas de login distinto, se debe pasr por parámetro el rol*/}
-					<button id="Innovador" className="btn btn-lg" onClick={this.cambiarPantallaInnovador.bind(this)}>Innovador</button>
-					<span>                                                                      </span>
-					<button id="Tester" className="btn btn-lg" onClick={this.cambiarPantallaTester.bind(this)}>Tester</button>
+					<br/><br/><br/>
+					<div className="row">
+						<div className="col-2"></div>
+						<div className="col">
+							<button id="buttonInnovador" className="btn btn-lg" onClick={this.cambiarPantallaInnovador.bind(this)}>Innovador</button>
+							<h5>Ingresa tus páginas y permite que interesados realicen pruebas de usabilidad</h5>
+						</div>
+						<div className="col">
+							<button id="buttonTester" className="btn btn-lg" onClick={this.cambiarPantallaTester.bind(this)}>Tester</button>
+							<h5>Prueba aplicaciones web de innovadores, gana puntos y consigue premios!</h5>
+						</div>
+						<div className="col-2"></div>
+					</div>
 					<br/><br/>
 					</center>
 					</div>
 					<br/><br/><br/><br/><br/><br/><br/>
 				</div>
-				<div className="col-sm"></div>
 				</div>
 			</div>
 		</div>
