@@ -54,6 +54,14 @@ export default class App extends Component {
 					<h1 className="display-4">Street Test</h1>
 					<br/>
 					<h4>Quieres ingresar como:</h4>
+					{
+						/*
+							Alguien que por primera vez ingresa a la apliación podría
+							no entender qué sería "Innovador" y "Tester" en el contexto de la aplicación.
+							Se podría implementar un mecanismo informativo (por ejemplo, cuando
+							el mouse pase sobre el botón) para aclarar estos términos.
+						*/
+					}
 					{/*botones de cada uno llevan  a pantallas de login distinto, se debe pasr por parámetro el rol*/}
 					<button id="Innovador" className="btn btn-lg" onClick={this.cambiarPantallaInnovador.bind(this)}>Innovador</button>
 					<span>                                                                      </span>
@@ -61,6 +69,13 @@ export default class App extends Component {
 					<br/><br/>
 					</center>
 					</div>
+					{
+						/*
+							La forma en la que se usa <br /> no es la mejor.
+							Sería mejor utilizar margin o padding para obtener
+							la posición deseada.
+						*/
+					}
 					<br/><br/><br/><br/><br/><br/><br/>
 				</div>
 				<div className="col-sm"></div>
