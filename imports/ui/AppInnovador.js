@@ -65,7 +65,7 @@ import { Proyectos } from "../api/proyectos.js";
  	}
 
 	render() {
-		if(!Meteor.user()) this.ingreseCuentaAlert();
+		if(!this.props.currentUser) this.ingreseCuentaAlert();
 		return (
 		<div className="innovadordiv"> 
 			

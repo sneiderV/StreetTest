@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import {mount} from "react-mounter";
 import Comentario from "./Comentario.js";
 
+import { withTracker } from "meteor/react-meteor-data";
 
-export default class DetalleProyecto extends Component {
+class DetalleProyecto extends Component {
 
 	constructor(props){
     super(props);
@@ -18,11 +19,16 @@ export default class DetalleProyecto extends Component {
     }
   }
 
+  ingreseCuentaAlert(){
+		swal("Ingresa ya!", "Debes ingresar a tu cuenta para realizar esta acción", "error");
+		FlowRouter.go("/");
+	}
+
   definirTiempoPromedio(_nroTarea)
   {
 
   	comentarios = this.props.proyecto.comentarios
-			.filter((comentario)=>{return _nroTarea==="" || comentario.tarea===_nroTarea})
+			.filter((comentario)=>{return _nroTarea==="" || comentario.tarea===Number(_nroTarea)})
       	.map((comentario)=>comentario.tiempo)
     if(comentarios.length===0)
     	return 0;
@@ -43,6 +49,8 @@ export default class DetalleProyecto extends Component {
 	}
 
 	render() {
+		if(!Meteor.user()) this.ingreseCuentaAlert();
+
 		return (
 		<div className="historialdiv">
 		    <div className="jumbotron container">
@@ -60,7 +68,7 @@ export default class DetalleProyecto extends Component {
 			<div className="container">
 				<h4>Listado de comentarios</h4>
 				<div className="container">
-		 			{this.props.proyecto.comentarios.filter((comentario)=>{return this.state.nroTarea==="" || comentario.tarea===this.state.nroTarea}).map((comentario)=>{
+		 			{this.props.proyecto.comentarios.filter((comentario)=>{return this.state.nroTarea==="" || comentario.tarea===Number(this.state.nroTarea)}).map((comentario)=>{
 		 				// console.log("comentario_id: ", comentario._id)
 		 				return <Comentario 
 		 				key={comentario.tarea+comentario.creador}
@@ -77,3 +85,11 @@ export default class DetalleProyecto extends Component {
 		);
 	}
 }
+
+export default withTracker(()=>{
+
+  return {
+    currentUser: Meteor.user()
+  };
+
+})(DetalleProyecto);

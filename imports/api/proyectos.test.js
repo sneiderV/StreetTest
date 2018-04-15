@@ -116,7 +116,6 @@ import { Proyectos } from "./proyectos.js";
 	 
 					// Ahora debe haber un proyecto en la DB
 					const proyectosDB = Proyectos.find();
-					// console.log("pryDB",typeof(proyectosDB));
 					assert.equal(proyectosDB.count(), 1, "Deberia haber solo un proyecto");
 
 					proyectosDB.forEach((doc)=>{assert.equal(doc.creador,userId,"Creador incorrecto")});
@@ -148,7 +147,6 @@ import { Proyectos } from "./proyectos.js";
 
 					const objComentario = crearComentario();
 					const proyectoTest = Factory.create("proyecto",{creador:userId, comentarios:[objComentario]});
-					console.log("pry:",proyectoTest);
 
 					asignarPuntaje.apply(invocation,[proyectoTest.nombre,objComentario.creador,objComentario.tarea]);
 
