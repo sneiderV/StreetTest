@@ -34,12 +34,12 @@ import { Proyectos } from "../api/proyectos.js";
 	      // closeOnConfirm: true,
 	      formFields: [
 	      { id: 'nombre', placeholder:'Nombre del Proyecto', required: true },
-	      { id: 'url', placeholder:'Ingresa la URL de tu proyecto', required: true },
+	      { id: 'url', placeholder:'URL (https://www.ejemplo.com/) de tu proyecto ', required: true },
 	      { id: 'tema', placeholder:'Tema general', required: true },
-	      { id: 'descripcion', placeholder:'Ingrese una breve descripción', required: true },
-	      { id: 'tarea1', placeholder:'Agregue la tarea 1 a realizar por el tester', required: true },
-	      { id: 'tarea2', placeholder:'Agregue la tarea 2 a realizar por el tester', required: false },
-	      { id: 'tarea3', placeholder:'Agregue la tarea 3 a realizar por el tester', required: false }
+	      { id: 'descripcion', placeholder:'Ingresa una breve descripción', required: true },
+	      { id: 'tarea1', placeholder:'Tarea 1 a realizar por el tester', required: true },
+	      { id: 'tarea2', placeholder:'Tarea 2 a realizar por el tester', required: false },
+	      { id: 'tarea3', placeholder:'Tarea 3 a realizar por el tester', required: false }
 	      ]
 	      
 	  }, function(isConfirm) {
