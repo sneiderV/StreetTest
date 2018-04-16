@@ -5,6 +5,7 @@ import AppTester from "./AppTester.js";
 import "./css/app.css"
 import swal from 'sweetalert';
 
+/*Como este es su componente principal, aca podria usar landmarks para favorecer la usabilidad*/
 //Manejo de sign in/up
 import AccountsUI from "./AccountsUI";
 
