@@ -15,7 +15,8 @@ class DetalleProyecto extends Component {
 													      		return Number(timeA) + Number(timeB)})/comentarios.length;
     this.state ={
       nroTarea: "",
-      tiempoPromedio: tPromedio
+      tiempoPromedio: tPromedio,
+      comentarios: this.props.proyecto.comentarios
     }
   }
 
@@ -26,10 +27,10 @@ class DetalleProyecto extends Component {
 
   definirTiempoPromedio(_nroTarea)
   {
-
-  	comentarios = this.props.proyecto.comentarios
-			.filter((comentario)=>{return _nroTarea==="" || comentario.tarea===Number(_nroTarea)})
-      	.map((comentario)=>comentario.tiempo)
+  	comentarios = this.state.comentarios;
+  	// comentarios = this.props.proyecto.comentarios
+			// .filter((comentario)=>{return _nroTarea==="" || comentario.tarea===Number(_nroTarea)})
+   //    	.map((comentario)=>comentario.tiempo)
     if(comentarios.length===0)
     	return 0;
     else{
@@ -44,7 +45,9 @@ class DetalleProyecto extends Component {
 	{
 		this.setState({
 			nroTarea : evt.target.value,
-			tiempoPromedio: this.definirTiempoPromedio(evt.target.value)
+			tiempoPromedio: this.definirTiempoPromedio(evt.target.value),
+			comentarios: this.props.proyecto.comentarios
+											.filter((comentario)=>{return evt.target.value==="" || comentario.tarea===Number(evt.target.value)})
 		});
 	}
 
@@ -68,10 +71,10 @@ class DetalleProyecto extends Component {
 			<div className="container">
 				<h4>Listado de comentarios</h4>
 				<div className="container">
-		 			{this.props.proyecto.comentarios.filter((comentario)=>{return this.state.nroTarea==="" || comentario.tarea===Number(this.state.nroTarea)}).map((comentario)=>{
-		 				// console.log("comentario_id: ", comentario._id)
+		 			{this.state.comentarios.map((comentario,i, array)=>{
+		 				console.log("array", array);
 		 				return <Comentario 
-		 				key={comentario.tarea+comentario.creador}
+		 				key={comentario._id}
 		 				comentario={comentario}
 		 				nombreProyecto={this.props.proyecto.nombre}
 		 				/>
