@@ -27,27 +27,26 @@ class DetalleProyecto extends Component {
 
   definirTiempoPromedio(_nroTarea)
   {
-  	comentarios = this.state.comentarios;
-  	// comentarios = this.props.proyecto.comentarios
-			// .filter((comentario)=>{return _nroTarea==="" || comentario.tarea===Number(_nroTarea)})
-   //    	.map((comentario)=>comentario.tiempo)
+  	comentarios = this.state.comentarios
+  		.filter((comentario)=>{return _nroTarea==="" || comentario.tarea===Number(_nroTarea)});
     if(comentarios.length===0)
     	return 0;
     else{
     	return comentarios
-	      	.reduce((timeA,timeB)=>{
-	      		return Number(timeA) + Number(timeB)})/comentarios.length;
+  			.map((comentario)=>comentario.tiempo)
+	      	.reduce((timeA,timeB)=>{return Number(timeA) + Number(timeB)})/comentarios.length;
     }
   	
   }
 
 	filtroPorNroTarea(evt)
 	{
+		nroTarea=evt.target.value;
 		this.setState({
-			nroTarea : evt.target.value,
-			tiempoPromedio: this.definirTiempoPromedio(evt.target.value),
+			nroTarea : nroTarea,
 			comentarios: this.props.proyecto.comentarios
-											.filter((comentario)=>{return evt.target.value==="" || comentario.tarea===Number(evt.target.value)})
+											.filter((comentario)=>{return nroTarea==="" || comentario.tarea===Number(nroTarea)}),
+			tiempoPromedio: this.definirTiempoPromedio(nroTarea)
 		});
 	}
 
