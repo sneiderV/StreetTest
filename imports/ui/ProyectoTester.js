@@ -13,6 +13,9 @@ import "./sweet-alert.css"
 
     // var datos;
 
+  /* El popup del formulario esta muy chevere, sin emabrgo si uno 
+  da click al boton pero la pantalla esta desplazada no puede ver todo el formulario y 
+  tampoco puede hacer scroll y no puede hacer mas que cancelarlo*/
     hacerTest(nombreProyecto){
         //arreglo de objetos: {value:"#tarea", text: "tarea #: descripcion"}
         let tareas = this.props.proyecto.tareas.map((tarea,index)=>{
